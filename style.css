@@ -312,24 +312,19 @@ input[type="number"] {
 }
 
 /* ================================
-   MOBILE LAYOUT (<= 600px wide)
-   Center header, cards, footer
+   MOBILE LAYOUT (<= 600px)
+   Center header + footer text
    ================================ */
 @media (max-width: 600px) {
-  /* Main page container */
+  /* Slightly more padding on small screens */
   .app-shell {
-    max-width: 480px;
-    margin: 0 auto;
-    padding: 2rem 1rem 2.5rem;
-    text-align: center;
+    padding: 2rem 1.25rem 2.5rem;
   }
 
-  /* Header: stack + center */
+  /* Stack and center header content */
   .app-header {
-    display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     text-align: center;
     gap: 0.75rem;
   }
@@ -337,49 +332,17 @@ input[type="number"] {
   .app-title {
     font-size: 1.6rem;
     line-height: 1.2;
-    text-align: center;
-    width: 100%;
   }
 
   .app-subtitle {
     max-width: 26rem;
     margin: 0 auto;
-    text-align: center;
     font-size: 0.9rem;
   }
 
-  /* Main grid becomes single column */
-  .app-main {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    margin-top: 1rem;
-    justify-items: center;
-  }
-
-  /* Cards: slightly narrower than screen to show centering */
-  .card {
-    width: 92%;
-    max-width: 420px;
-    margin: 0 auto;
-  }
-
-  /* Results & flags centered text */
-  .results-section,
-  .results-body,
-  .flags-body {
-    text-align: center;
-  }
-
-  .results-list li {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  /* Footer: disclaimer + citation centered */
+  /* Footer text centered on mobile */
   .app-footer {
     text-align: center;
-    margin-top: 1.5rem;
   }
 
   .disclaimer,
@@ -387,14 +350,5 @@ input[type="number"] {
     max-width: 26rem;
     margin: 0.5rem auto 0 auto;
     text-align: center;
-  }
-
-  /* Keep form controls themselves left-aligned for usability */
-  .form-field,
-  .field-label,
-  .field-input,
-  .checkbox-grid,
-  .checkbox-item {
-    text-align: left;
   }
 }
