@@ -315,27 +315,28 @@ input[type="number"] {
 @media (max-width: 600px) {
   .app-shell {
     padding: 2rem 1.25rem 2.5rem;   /* more top/side padding on phones */
-  }
-
-  .app-header {
-    flex-direction: column;         /* stack title + badge vertically */
-    align-items: center;            /* center them horizontally */
-    text-align: center;             /* center the text itself */
-    gap: 0.75rem;
-  }
-
-  .app-title {
-    font-size: 1.5rem;              /* slightly smaller so it doesn’t wrap awkwardly */
-    line-height: 1.2;
-  }
-
-  .app-subtitle {
-    font-size: 0.9rem;
-    max-width: 26rem;               /* keeps lines from stretching edge-to-edge */
-  }
-
-  .app-main {
-    margin-top: 0.5rem;             /* a bit of breathing room under header */
-  }
 }
+
+.app-header {
+  flex-direction: column;         /* stack title + badge vertically */
+  align-items: center;            /* center them horizontally */
+  text-align: center;             /* center the text itself */
+  gap: 0.75rem;
+}
+
+.app-title {
+  font-size: 1.5rem;              /* slightly smaller so it doesn’t wrap awkwardly */
+  line-height: 1.2;
+ }
+
+ .app-subtitle {
+   font-size: 0.9rem;
+   max-width: 26rem;               /* keeps lines from stretching edge-to-edge */
+}
+
+ .app-main {
+  margin-top: 0.5rem;             /* a bit of breathing room under header */
+ }
+}
+
 
