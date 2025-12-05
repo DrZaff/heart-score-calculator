@@ -402,4 +402,62 @@ input[type="number"] {
   text-align: left;
 }
 
+/* FULL MOBILE CENTERING FIX */
+@media (max-width: 600px) {
+
+  /* Center entire page container */
+  .app-shell {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+
+  /* Header: center everything */
+  .app-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0.75rem;
+  }
+
+  /* Title */
+  .app-title {
+    text-align: center;
+    width: 100%;
+  }
+
+  /* Subtitle paragraph under title */
+  .app-subtitle {
+    max-width: 90%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  /* Card container must center itself */
+  .card {
+    margin: 0 auto;        /* THIS is the missing piece */
+    width: 100%;
+  }
+
+  /* Results & flags */
+  .results-section,
+  .results-body,
+  .flags-body {
+    text-align: center;
+  }
+
+  /* Footer disclaimers & citation */
+  .app-footer,
+  .disclaimer,
+  .citation {
+    text-align: center;
+    max-width: 90%;
+    margin: 1.2rem auto 0 auto;
+  }
+}
+
+
 
