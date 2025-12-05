@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>HEART Score – ClinicalToolsDEV</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div>
+        <h1 class="app-title">HEART Score Calculator</h1>
+        <p class="app-subtitle">
+          Estimates risk of major adverse cardiac events (MACE) in adult patients
+          with chest pain using the HEART score (History, ECG, Age, Risk factors, Troponin).
+        </p>
+      </div>
+      <div class="app-meta">
+        <span class="app-badge">ClinicalToolsDEV</span>
+      </div>
+    </header>
+
+    <main class="app-main">
+      <!-- Inputs Card -->
+      <section class="card card-inputs">
+        <h2 class="card-title">Inputs</h2>
+        <form id="tool-form" class="form-grid">
+          <!-- History -->
+          <div class="form-field">
+            <label for="historyScore" class="field-label">
+              History (clinical suspicion)
+            </label>
+            <select id="historyScore" name="historyScore" class="field-input" required>
+              <option value="">Select...</option>
+              <option value="0">0 – Slightly suspicious</option>
+              <option value="1">1 – Moderately suspicious</option>
+              <option value="2">2 – Highly suspicious</option>
+            </select>
+            <p class="field-help">
+              Overall impression of chest pain history and associated features.
+            </p>
+          </div>
+
+          <!-- ECG -->
+          <div class="form-field">
+            <label for="ecgScore" class="field-label">
+              ECG
+            </label>
+            <select id="ecgScore" name="ecgScore" class="field-input" required>
+              <option value="">Select...</option>
+              <option value="0">0 – Normal</option>
+              <option value="1">1 – Non-specific repolarization abnormalities</option>
+              <option value="2">2 – Significant ST deviation</option>
+            </select>
+            <p class="field-help">
+              Do not use this tool as a stand-alone STEMI detector.
+            </p>
+          </div>
+
+          <!-- Age -->
+          <div class="form-field">
+            <label for="ageYears" class="field-label">
+              Age (years)
+            </label>
+            <input
+              id="ageYears"
+              name="ageYears"
+              type="number"
+              min="0"
+              step="1"
+              class="field-input"
+              required
+            />
+            <p class="field-help">
+              HEART score is validated for adults (≥18 years) with chest pain.
+            </p>
+          </div>
+
+          <!-- Risk Factors -->
+          <div class="form-field">
+            <span class="field-label">Risk factors</span>
+            <div class="checkbox-grid">
+              <label class="checkbox-item">
+                <input type="checkbox" class="risk-factor" value="dm" />
+                <span>Diabetes mellitus</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" class="risk-factor" value="smoker" />
+                <span>Current or recent smoker</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" class="risk-factor" value="htn" />
+                <span>Hypertension</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" class="risk-factor" value="hld" />
+                <span>Hyperlipidemia</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" class="risk-factor" value="obesity" />
+                <span>Obesity (BMI ≥ 30)</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" class="risk-factor" value="fhx" />
+                <span>Family history of CAD</span>
+              </label>
+              <label class="checkbox-item checkbox-item--strong">
+                <input type="checkbox" class="risk-factor" value="knownAthero" />
+                <span>Known atherosclerotic disease (prior MI/PCI/CABG/PAD/stroke)</span>
+              </label>
+            </div>
+            <p class="field-help">
+              HEART scoring: 0 pts = none; 1 pt = 1–2 risk factors; 2 pts = ≥3 or known atherosclerotic disease.
+            </p>
+          </div>
+
+          <!-- Troponin -->
+          <div class="form-field">
+            <label for="tropScore" class="field-label">
+              Troponin (relative to lab upper limit)
+            </label>
+            <select id="tropScore" name="tropScore" class="field-input" required>
+              <option value="">Select...</option>
+              <option value="0">0 – ≤ normal limit</option>
+              <option value="1">1 – 1–3× normal limit</option>
+              <option value="2">2 – &gt;3× normal limit</option>
+            </select>
+            <p class="field-help">
+              Use your lab’s reference range to categorize the measured value.
+            </p>
+          </div>
+
+          <button type="submit" class="btn-primary">
+            Interpret HEART Score
+          </button>
+        </form>
+      </section>
+
+      <!-- Results Card -->
+      <section class="card card-results">
+        <h2 class="card-title">Results</h2>
+        <div id="results-container" class="results-body">
+          <p class="results-placeholder">
+            Enter values and click "Interpret HEART Score" to view results.
+          </p>
+        </div>
+      </section>
+
+      <!-- Flags Card -->
+      <section class="card card-warnings">
+        <h2 class="card-title">Flags &amp; Notes</h2>
+        <div id="flags-container" class="flags-body">
+          <p class="results-placeholder">
+            Any critical values, red flags, or important notes will appear here.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <p class="disclaimer">
+        This tool is for educational and decision-support purposes only. It does
+        not replace clinical judgment, institutional guidelines, or specialist
+        consultation.
+      </p>
+      </p class="citation">
+      Brady W, de Souza K. The HEART score: A guide to its application in the emergency
+              department. Turk J Emerg Med. 2018 Jun 14;18(2):47-51. doi: 10.1016/j.tjem.2018.04.004.
+              PMID: 29922729; PMCID: PMC6005932.
+      </p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
