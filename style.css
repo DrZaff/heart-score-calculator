@@ -340,6 +340,26 @@ input[type="number"] {
     font-size: 0.9rem;
   }
 
+  @media (max-width: 600px) {
+  .card {
+    width: 95vw;            /* wider card */
+    max-width: 95vw;
+    margin-left: auto;
+    margin-right: auto;     /* force true centering */
+  }
+}
+
+  @media (max-width: 600px) {
+  .app-header,
+  .app-footer {
+    width: 95vw;
+    max-width: 95vw;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+}
+
   /* Footer text centered on mobile */
   .app-footer {
     text-align: center;
@@ -352,3 +372,4 @@ input[type="number"] {
     text-align: center;
   }
 }
+
