@@ -320,7 +320,7 @@ input[type="number"] {
   .app-shell {
     max-width: 480px;
     margin: 0 auto;
-    padding: 2rem 1.25rem 2.5rem;
+    padding: 2rem 1rem 2.5rem;
     text-align: center;
   }
 
@@ -353,15 +353,17 @@ input[type="number"] {
     grid-template-columns: 1fr;
     gap: 1rem;
     margin-top: 1rem;
+    justify-items: center;
   }
 
-  /* Cards: full width, centered */
+  /* Cards: slightly narrower than screen to show centering */
   .card {
-    width: 100%;
+    width: 92%;
+    max-width: 420px;
     margin: 0 auto;
   }
 
-  /* Results & flags centered */
+  /* Results & flags centered text */
   .results-section,
   .results-body,
   .flags-body {
