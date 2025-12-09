@@ -174,22 +174,49 @@
         not replace clinical judgment, institutional guidelines, or specialist
         consultation.
       </p>
-      </p class="citation">
-      Brady W, de Souza K. The HEART score: A guide to its application in the emergency
-              department. Turk J Emerg Med. 2018 Jun 14;18(2):47-51. doi: 10.1016/j.tjem.2018.04.004.
-              PMID: 29922729; PMCID: PMC6005932.
+      <p class="citation">
+        Brady W, de Souza K. The HEART score: A guide to its application in the emergency
+        department. Turk J Emerg Med. 2018 Jun 14;18(2):47-51. doi: 10.1016/j.tjem.2018.04.004.
+        PMID: 29922729; PMCID: PMC6005932.
       </p>
     </footer>
   </div>
 
+  <!-- iOS INSTALL BANNER -->
+  <div id="ios-install-hint" class="ios-install-hint ios-install-hint-hidden">
+    <div class="ios-install-hint-icon">📱</div>
+    <div class="ios-install-hint-text">
+      <strong>Install this app</strong><br />
+      On iPhone: tap the <strong>Share</strong> button, then choose
+      <strong>Add to Home Screen</strong>.
+    </div>
+    <button type="button" class="ios-install-hint-close" aria-label="Dismiss">
+      CLOSE
+    </button>
+  </div>
+
+  <!-- Script: App Logic -->
   <script src="script.js"></script>
+
+  <!-- Script: Service Worker Registration -->
   <script>
-     if ("serviceWorker" in navigator) {
-       window.addEventListener("load", () => {
-         navigator.serviceWorker
-           .register("./service-worker.js")
-           .catch(err => console.error("Service worker registration failed:", err));
-       });
-     }
+    if ("serviceWorker" in navigator) {
+      console.log("[PWA] Service worker supported");
+
+      window.addEventListener("load", async () => {
+        try {
+          const reg = await navigator.serviceWorker.register("/service-worker.js");
+          console.log("[PWA] Service worker registered with scope:", reg.scope);
+        } catch (err) {
+          console.error("[PWA] Service worker registration failed:", err);
+        }
+      });
+    } else {
+      console.log("[PWA] Service worker NOT supported.");
+    }
+  </script>
+
+  <!-- iOS Install Hint Script -->
+  <script src="ios-install-hint.js"></script>
 </body>
 </html>
