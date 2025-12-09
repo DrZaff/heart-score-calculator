@@ -1,7 +1,8 @@
 {
   "name": "HEART Score Calculator",
   "short_name": "HEARTcalc",
-  "start_url": "/",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#050810",
   "theme_color": "#050810",
